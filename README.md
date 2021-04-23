@@ -10,7 +10,9 @@ Important !
 -----------
 
 this readme assume you have `chromedriver` and `geckodriver` in your path, if not add it or:
-1- modify `features/environment.py` and change `chromedriver` whit `your/chromedriver/path`
+
+1. modify `features/environment.py` and change `chromedriver` whit `your/chromedriver/path`
+
 
 
 How To Install This ?
@@ -30,8 +32,8 @@ Important directory
 
 1.`features` : feature description whit `.feature` extension 
 2.`featurer\steps` :  implementation of features steps
-2.`pages` : page object that describe the error process
-3.`tests` : pytest implementation of test 
+3.`pages` : page object that describe the error process
+4.`tests` : pytest implementation of test 
 
 
 
