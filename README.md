@@ -30,10 +30,10 @@ How To Install This ?
 Important directory
 -------------------
 
-1.`features` : feature description whit `.feature` extension 
-2.`featurer\steps` :  implementation of features steps
-3.`pages` : page object that describe the error process
-4.`tests` : pytest implementation of test 
+1.`features`: feature description whit `.feature` extension
+2.`featurer\steps`: implementation of features steps
+3.`pages`: page object that describe the error process
+4.`tests`: pytest implementation of test 
 
 
 
