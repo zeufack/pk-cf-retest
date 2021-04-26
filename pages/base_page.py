@@ -1,4 +1,7 @@
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 
 
 class BasePage:
@@ -15,15 +18,16 @@ class BasePage:
         try:
             cookie_accept = self.find(self.ACCEPT_COOKIE_BTN)
             cookie_accept.click()
-            # self.clos_pub()
         except NoSuchElementException:
             pass
 
-    def clos_pub(self):
+    def handle_advertising(self, browser):
         try:
-            pub_btn = self.find(self.PUB_BTN)
-            pub_btn.click()
-        except NoSuchElementException:
+            popup = WebDriverWait(self.browser, 10).until(
+                EC.presence_of_element_located((By.ID, 'by_r_31a0722a70a443548d74efe6ba34e122')))
+            close_advertising = popup.find_element_by_class_name(
+                'by_close').click()
+        except (NoSuchElementException, TimeoutException):
             pass
 
     def find(self, element):
