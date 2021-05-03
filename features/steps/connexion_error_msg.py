@@ -14,7 +14,7 @@ def step_impl(context):
     context.connexion_error.connect()
 
 
-@then('the error message shoul be clear')
+@then('the error message should be clear')
 def step_impl(context):
     con_error_msg = context.connexion_error.get_connexion_error()
     assert con_error_msg != 'Error 16'

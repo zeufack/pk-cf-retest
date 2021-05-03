@@ -1,7 +1,5 @@
+from selenium import webdriver
 from selenium.webdriver import Chrome
-from selenium.webdriver import Firefox
-from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
-from selenium.webdriver.support.events import EventFiringWebDriver, AbstractEventListener
 from behave import fixture, use_fixture
 
 
@@ -13,19 +11,30 @@ def browser(context):
         context.driver.quit()
 
 
-# @fixture
 # def proxy_browser(context):
-#     profile = FirefoxProfile()
-#     profile.set_preference('network.proxy.type', 1)
-#     profile.set_preference("network.proxy.http", "217.182.239.121")
-#     profile.set_preference("network.proxy.http_port", "1000")
-#     profile.update_preferences()
-#     context.proxyed_browser = Firefox(
-#         firefox_profile=profile, executable_path='geckodriver')
-#     context.proxyed_browser.implicitly_wait(10)
-#     yield context.proxyed_browser
-#     context.proxy_browser.quit()
+#     PORT = '178.32.129.31:3128'
+#     options = webdriver.ChromeOptions()
+#     options.add_argument('--proxy-server=%s' % PORT)
+#     options.add_argument('--disable-extensions')
+#     options.add_argument('--profile-directory=Default')
+#     options.add_argument("--disable-plugins-discovery")
+#     options.add_argument("--start-maximized")
+
+#     with Chrome(options=options, executable_path='chromedriver') as context.proxy_driver:
+
+#         context.proxy_driver.delete_all_cookies()
+#         context.proxy_driver.set_window_position(0, 0)
+#         context.proxy_driver.implicitly_wait(10)
+
+#         yield context.proxy_driver
+
+#         context.proxy_driver.quit()
 
 
 def before_all(context):
     use_fixture(browser, context)
+    # use_fixture(proxy_browser, context)
+
+
+# def after_scenario(context, scenario):
+#     context.driver.quit()
