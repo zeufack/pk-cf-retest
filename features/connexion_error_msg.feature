@@ -1,3 +1,4 @@
+@chrome
 Feature: Connexion Error
     In to connecting from outside of France 
     As a user

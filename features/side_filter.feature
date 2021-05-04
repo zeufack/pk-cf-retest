@@ -1,3 +1,4 @@
+@chrome
 Feature: Side Filter
     In order to to sort product by sidenav check box criteria
     As a user

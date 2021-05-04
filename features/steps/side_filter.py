@@ -4,7 +4,7 @@ from pages.scrool_to_top_error import ScrollToTopError
 
 @given('navigate to carrefour bio website sidenav')
 def step_impl(context):
-    context.scroll_error = ScrollToTopError(browser=context.driver)
+    context.scroll_error = ScrollToTopError(browser=context.browser)
     context.scroll_error.load()
 
 

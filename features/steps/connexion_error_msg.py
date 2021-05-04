@@ -5,7 +5,7 @@ from pages.connexion_error import ConnectionError
 
 @given('navigate to carrefour web site')
 def step_impl(context):
-    context.connexion_error = ConnectionError(browser=context.driver)
+    context.connexion_error = ConnectionError(browser=context.browser)
     context.connexion_error.load()
 
 

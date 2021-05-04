@@ -12,18 +12,18 @@ class ConnectionError(BasePage):
         super().__init__(browser, self.URL)
 
     def connect(self):
-        account_btn = self.find(
+        account_btn = self.browser.find_by_xpath(
             '//*[@id="data-account"]')
         account_btn.click()
-        connect_btn = self.find(
+        connect_btn = self.browser.find_by_xpath(
             '/html/body/header/div[2]/div[1]/div[1]/div[2]/div/a[1]')
         connect_btn.click()
 
     def get_connexion_error(self):
-        error_box = self.find('//*[@id="main-iframe"]')
+        error_box = self.browser.find_by_xpath('//*[@id="main-iframe"]')
 
-        self.browser.switch_to.frame(error_box)
-        error_text = self.find(
+        self.browser.use_frame(error_box)
+        error_text = self.browser.find_by_xpath(
             '/html/body/div[1]/div[1]/div[1]/div/div[2]')
 
         return error_text.text

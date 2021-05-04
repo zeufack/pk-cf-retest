@@ -6,6 +6,8 @@ from selenium.webdriver.support import expected_conditions as EC
 
 class BasePage:
 
+    USEREMAIL = ''
+    PASSWORD = ''
     ACCEPT_COOKIE_BTN = '//button[@id="onetrust-accept-btn-handler"]'
     PUB_BTN = '/html/body/div[9]/div/div[2]/div[3]/span'
     POPUP_ID = 'by_r_31a0722a70a443548d74efe6ba34e122'
@@ -16,21 +18,19 @@ class BasePage:
         self.browser = browser
 
     def load(self):
-        self.browser.get(self.url)
+        self.browser.open(self.url)
         try:
-            cookie_accept = self.find(self.ACCEPT_COOKIE_BTN)
+            cookie_accept = self.browser.find_by_xpath(self.ACCEPT_COOKIE_BTN)
             cookie_accept.click()
         except NoSuchElementException:
             pass
 
     def handle_advertising(self, browser):
         try:
-            popup = WebDriverWait(self.browser, 10).until(
-                EC.presence_of_element_located((By.ID, self.POPUP_ID)))
+            popup = self.browser.find_by_id(self.POPUP_ID)
             close_advertising = popup.find_element_by_class_name(
                 self.CLOSE_ADVERTISING).click()
         except (NoSuchElementException, TimeoutException):
             pass
 
-    def find(self, element):
-        return self.browser.find_element_by_xpath(element)
+    

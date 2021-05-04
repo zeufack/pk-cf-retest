@@ -1,3 +1,4 @@
+@chrome
 Feature: Top Filter
     In order to sort product 
     As a ascending order by price

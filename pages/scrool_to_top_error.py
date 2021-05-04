@@ -8,26 +8,24 @@ class ScrollToTopError(BasePage):
     def __init__(self, browser):
         super().__init__(browser, self.URL)
 
-
-
     def mouve_to_filter(self):
-        element = self.find(
+        element = self.browser.find_by_xpath(
             '/html/body/main/div/div[3]/aside/div[2]/div[2]/form/ul/li[10]/div')
-        action = ActionChains(self.browser)
+        action = ActionChains(self.browser.get_browser())
         action.move_to_element(element).perform()
 
     def listen_to_scroll(self):
-        offset_before_click = self.browser.execute_script(
+        offset_before_click = self.browser.execute_js(
             "return window.pageYOffset"
         )
 
-        las_check = self.find(
+        las_check = self.browser.find_by_xpath(
             '/html/body/main/div/div[3]/aside/div[2]/div[2]/form/ul/li[10]/div/fieldset/div/div/ul/li[5]/div/label'
         )
 
         las_check.click()
 
-        offset_after_click = self.browser.execute_script(
+        offset_after_click = self.browser.execute_js(
             "return window.pageYOffset"
         )
 

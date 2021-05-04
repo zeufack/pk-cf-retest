@@ -10,18 +10,16 @@ class FilterError(BasePage):
         super().__init__(browser, self.URL)
 
     def set_filter_decroissant(self):
-        self.browser.implicitly_wait(10)
-        cat_btn = self.find(
+        cat_btn = self.browser.find_by_xpath(
             '/html/body/main/div/div[3]/div/div[1]/div[2]/div/div[2]/div/div/div/div[2]/span')
         cat_btn.click()
-        cat = self.find(
+        cat = self.browser.find_by_xpath(
             '/html/body/main/div/div[3]/div/div[1]/div[2]/div/div[2]/div/div/div/div[3]/ul/li[2]/span')
         cat.click()
-        print(cat)
 
     def get_categorie_sort_status(self):
         self.set_filter_decroissant()
-        soup = BeautifulSoup(self.browser.page_source, features="html.parser")
+        soup = BeautifulSoup(self.browser.source, features="html.parser")
         list_of_product = soup.find_all("ul", {"id": "data-plp_produits"})[1]
         prices = []
         for child in list_of_product.find_all('li'):
