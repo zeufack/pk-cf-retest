@@ -6,7 +6,7 @@ from pages.filter_error import FilterError
 def step_impl(context):
     context.filter_error = FilterError(browser=context.browser)
     context.filter_error.load()
-    context.filter_error.handle_advertising(context.browser)
+    # context.filter_error.handle_advertising()
 
 
 @when('i select Prix(croissant)filter')
