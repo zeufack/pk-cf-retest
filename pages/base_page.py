@@ -25,12 +25,16 @@ class BasePage:
         except NoSuchElementException:
             pass
 
-    def handle_advertising(self, browser):
-        try:
-            popup = self.browser.find_by_id(self.POPUP_ID)
-            close_advertising = popup.find_element_by_class_name(
-                self.CLOSE_ADVERTISING).click()
-        except (NoSuchElementException, TimeoutException):
-            pass
+    def handle_advertising(self):
+        # advertising_class = 'basket-panel__mask'
+        # advertising_id = 'by_r_0ac55cf0f19841b5be5ede8d2eb2c614'
+        # self.browser.find_by_id(advertising_id)
+        # self.browser.execute_js("arguments[0].style.display = 'none';")
 
-    
+        # try:
+        # self.browser.wait(180)
+        popup = self.browser.find_by_id(self.POPUP_ID)
+        close_advertising = popup.find_element_by_class_name(
+            self.CLOSE_ADVERTISING).click()
+        # except (NoSuchElementException, TimeoutException):
+        #     pass

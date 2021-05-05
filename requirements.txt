@@ -1,3 +1,5 @@
+allure-behave==2.8.40
+allure-python-commons==2.8.40
 attrs==20.3.0
 beautifulsoup4==4.9.3
 behave==1.2.6

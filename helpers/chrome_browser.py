@@ -6,5 +6,4 @@ class ChromeBrowser(WebBrowser):
     __WEBDRIVER = 'chromedriver'
 
     def __init__(self):
-        print('test')
         super().__init__(Chrome(executable_path=self.__WEBDRIVER))
