@@ -11,7 +11,7 @@ Important !
 
 this readme assume you have `chromedriver` and `geckodriver` in your path, if not add it or:
 
-1. modify `features/environment.py` and change `chromedriver` whit `your/chromedriver/path`
+1. modify `helper/chrome_browser.py` and change `chromedriver` constant whit `your/chromedriver/path`
 
 
 
@@ -25,6 +25,8 @@ How To Install This ?
 5. Run `pip install -r requirements.txt` to install dependencies
 6. from there you can run `pytest tests/test_carrefour.py` for pytest result 
 7. Or run `behave` for behave(python implementation of cumcumber)
+8. or run `behave -f allure_behave.formatter:AllureFormatter -o allure/results ./features` for allure report
+9. and run `allure serve allure/results`
 
 
 Important directory
