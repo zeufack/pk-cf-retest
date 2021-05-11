@@ -1,5 +1,5 @@
 @chrome
-Feature: Side Filter
+Feature:#573: Side Filter
     In order to to sort product by sidenav check box criteria
     As a user
     I want the page not scroll to top

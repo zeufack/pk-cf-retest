@@ -24,6 +24,7 @@ class FilterError(BasePage):
             self.browser.get_browser().page_source, features="html.parser")
         list_of_product = soup.find_all("ul", {"id": "data-plp_produits"})[1]
         prices = []
+        # prices =[ child.find("span", {"class": "ds-title"}).text.strip().replace(',', '.').replace('€', ''))for child in list_of_product.find_all('li') if child.find("span", {"class": "ds-title"}) != None ]
         for child in list_of_product.find_all('li'):
             if child.find("span", {"class": "ds-title"}) != None:
                 prices.append(child.find(

@@ -29,7 +29,7 @@ class WebBrowser(object):
     def find_by_name(self, name):
         return self.__browser_wait.until(EC.presence_of_element_located((By.NAME, name)))
 
-    def find_by_class_name(select, class_name):
+    def find_by_class_name(self, class_name):
         return self.__browser_wait.until(EC.presence_of_element_located((By.CLASS_NAME, class_name)))
 
     def find_by_id(self, id):
