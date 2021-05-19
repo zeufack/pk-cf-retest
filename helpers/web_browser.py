@@ -35,6 +35,9 @@ class WebBrowser(object):
     def find_by_id(self, id):
         return self.__browser_wait.until(EC.presence_of_element_located((By.ID, id)))
 
+    def find_by_tag(self, tag):
+        return self.__browser_wait.until(EC.presence_of_element_located((By.TAG_NAME, tag)))
+
     def execute_js(self, js_code):
         return self.__browser.execute_script(js_code)
 
@@ -46,6 +49,9 @@ class WebBrowser(object):
 
     def wait(self, time):
         self.__browser.implicitly_wait(time)
+
+    def mv_to_ltab(self):
+        self.__browser.switch_to.window(self.__browser.window_handles[-1])
 
     def quit(self):
         self.__browser.quit()

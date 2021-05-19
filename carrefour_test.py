@@ -11,7 +11,7 @@ def mv_to_test(test_folder):
     os.chdir(test_folder)
 
 def generate_repport(repport_cmd):
-    subprocess.run(["rm", "*", "allure/results/"])
+    subprocess.run(["rm", "allure/results/*"])
     subprocess.run([n for n in repport_cmd.split(' ')])
 
 def display_repport(display_cmd):
